@@ -128,6 +128,66 @@ DIA_CHI_CUNG_MAP = {
 BASE_YEAR = 1972
 BASE_TICH_TUE = 10_155_889
 
+TRUNG_CO_GIAP_DAN_YEAR = 1787
+TRUNG_CO_GIAP_DAN_TICH_TUE = 14_394
+
+TU_THAN_ORDER = [
+    "Càn",
+    "Ngọ",
+    "Cấn",
+    "Mão",
+    "Cung giữa",
+    "Dậu",
+    "Khôn",
+    "Tý",
+    "Tốn",
+    "Tỵ",
+    "Thân",
+    "Dần",
+]
+THIEN_AT_ORDER = [
+    "Dậu",
+    "Khôn",
+    "Tý",
+    "Tốn",
+    "Tỵ",
+    "Thân",
+    "Dần",
+    "Càn",
+    "Ngọ",
+    "Cấn",
+    "Mão",
+    "Cung giữa",
+]
+TRUC_PHU_ORDER = [
+    "Cung giữa",
+    "Dậu",
+    "Khôn",
+    "Tý",
+    "Tốn",
+    "Tỵ",
+    "Thân",
+    "Dần",
+    "Càn",
+    "Ngọ",
+    "Cấn",
+    "Mão",
+]
+DIA_AT_ORDER = [
+    "Tốn",
+    "Tỵ",
+    "Thân",
+    "Dần",
+    "Càn",
+    "Ngọ",
+    "Cấn",
+    "Mão",
+    "Cung giữa",
+    "Dậu",
+    "Khôn",
+    "Tý",
+]
+
 # ============================================================
 # HÀM TIỆN ÍCH
 # ============================================================
@@ -488,8 +548,7 @@ def tinh_thuy_kich(ke_than: dict, van_xuong: dict, la_am_cuc: bool = False) -> d
     so_cung = 0
     idx = kt_idx
     while True:
-        cung = CUNG_MASTER[idx]
-        so_cung += 2 if cung in ("Càn", "Khôn") else 1
+        so_cung += 1
         if idx == vx_idx:
             break
         idx = buoc_thuan(idx, 1)
@@ -505,6 +564,101 @@ def tinh_thuy_kich(ke_than: dict, van_xuong: dict, la_am_cuc: bool = False) -> d
         "ten_cung": cung,
         "ten_day_du": CUNG_TEN_DAY_DU[cung],
         "index": raw_idx,
+    }
+
+
+# ============================================================
+# QUÂN CƠ
+# ============================================================
+
+
+def tinh_quan_co(year: int) -> dict:
+    tich_tue_giap_dan = TRUNG_CO_GIAP_DAN_TICH_TUE + (year - TRUNG_CO_GIAP_DAN_YEAR)
+    du_360 = tich_tue_giap_dan % 360
+    if du_360 == 0:
+        du_360 = 360
+    so_cung = (du_360 - 1) // 30
+    nam_trong_cung = (du_360 - 1) % 30 + 1
+    idx = (DIA_CHI.index("Ngọ") + so_cung) % len(DIA_CHI)
+    cung = DIA_CHI[idx]
+    return {
+        "tich_tue_giap_dan": tich_tue_giap_dan,
+        "du_360": du_360,
+        "so_cung": so_cung + 1,
+        "nam_trong_cung": nam_trong_cung,
+        "ten_cung": cung,
+    }
+
+
+# ============================================================
+# THẦN CƠ
+# ============================================================
+
+
+def tinh_than_co(year: int) -> dict:
+    tich_tue_giap_dan = TRUNG_CO_GIAP_DAN_TICH_TUE + (year - TRUNG_CO_GIAP_DAN_YEAR)
+    du_360 = tich_tue_giap_dan % 360
+    if du_360 == 0:
+        du_360 = 360
+    du_36 = du_360 % 36
+    if du_36 == 0:
+        du_36 = 36
+    so_cung = (du_36 - 1) // 3
+    nam_trong_cung = (du_36 - 1) % 3 + 1
+    idx = (DIA_CHI.index("Ngọ") + so_cung) % len(DIA_CHI)
+    cung = DIA_CHI[idx]
+    return {
+        "tich_tue_giap_dan": tich_tue_giap_dan,
+        "du_360": du_360,
+        "du_36": du_36,
+        "so_cung": so_cung + 1,
+        "nam_trong_cung": nam_trong_cung,
+        "ten_cung": cung,
+    }
+
+
+# ============================================================
+# DÂN CƠ
+# ============================================================
+
+
+def tinh_dan_co(ky_du: int) -> dict:
+    temp = (ky_du + 250) % 360
+    if temp == 0:
+        temp = 360
+    thuong = temp // 12
+    du = temp % 12
+    if du == 0:
+        du = 12
+    idx = (DIA_CHI.index("Tuất") + du - 1) % len(DIA_CHI)
+    cung = DIA_CHI[idx]
+    return {
+        "temp": temp,
+        "thuong": thuong,
+        "du": du,
+        "ten_cung": cung,
+    }
+
+
+# ============================================================
+# TỨ THẦN
+# ============================================================
+
+
+def tinh_tu_than(ky_du: int) -> dict:
+    du = ky_du % 36
+    if du == 0:
+        du = 36
+    thuong = (du - 1) // 3
+    nam = (du - 1) % 3 + 1
+    return {
+        "du_36": du,
+        "thuong": thuong,
+        "nam": nam,
+        "tu_than": TU_THAN_ORDER[thuong],
+        "thien_at": THIEN_AT_ORDER[thuong],
+        "truc_phu": TRUC_PHU_ORDER[thuong],
+        "dia_at": DIA_AT_ORDER[thuong],
     }
 
 
@@ -536,6 +690,11 @@ def tinh(year: int) -> dict:
     khach_dai_tuong = tinh_khach_dai_tuong(toan_khach)
     khach_tham_tuong = tinh_khach_tham_tuong(khach_dai_tuong)
 
+    quan_co = tinh_quan_co(year)
+    than_co = tinh_than_co(year)
+    dan_co = tinh_dan_co(ky_du)
+    tu_than = tinh_tu_than(ky_du)
+
     return {
         "nam": year,
         "thai_tue": thai_tue,
@@ -556,6 +715,10 @@ def tinh(year: int) -> dict:
         "toan_khach": toan_khach,
         "khach_dai_tuong": khach_dai_tuong,
         "khach_tham_tuong": khach_tham_tuong,
+        "quan_co": quan_co,
+        "than_co": than_co,
+        "dan_co": dan_co,
+        "tu_than": tu_than,
     }
 
 
@@ -636,6 +799,39 @@ def in_ket_qua(kq: dict) -> None:
     print(
         f"    Khách Tham Tướng: cung {ktt['biet_so']} - {ktt['ten_cung']} ({ktt['ten_day_du']})"
     )
+    print()
+
+    qc = kq["quan_co"]
+    tc2 = kq["than_co"]
+    dc = kq["dan_co"]
+    print(f"  ▶ QUÂN CƠ")
+    print(f"    Tích tuế Giáp Dần: {qc['tich_tue_giap_dan']:,}")
+    print(f"    Dư 360         : {qc['du_360']}")
+    print(f"    Số cung        : {qc['so_cung']} - {qc['ten_cung']}")
+    print(f"    Năm thứ        : {qc['nam_trong_cung']}/30")
+    print()
+    print(f"  ▶ THẦN CƠ")
+    print(f"    Tích tuế Giáp Dần: {tc2['tich_tue_giap_dan']:,}")
+    print(f"    Dư 360         : {tc2['du_360']}")
+    print(f"    Dư 36          : {tc2['du_36']}")
+    print(f"    Số cung        : {tc2['so_cung']} - {tc2['ten_cung']}")
+    print(f"    Năm thứ        : {tc2['nam_trong_cung']}/3")
+    print()
+    print(f"  ▶ DÂN CƠ")
+    print(f"    (Kỷ dư+250)%360: {dc['temp']}")
+    print(f"    Thương/Dư     : {dc['thuong']}/{dc['du']}")
+    print(f"    Cung           : {dc['ten_cung']}")
+    print()
+
+    tt = kq["tu_than"]
+    print(f"  ▶ TỨ THẦN")
+    print(f"    Dư 36         : {tt['du_36']}")
+    print(f"    Thương        : {tt['thuong']}")
+    print(f"    Năm thứ       : {tt['nam']}/3")
+    print(f"    Tứ Thần       : {tt['tu_than']}")
+    print(f"    Thiên Ất      : {tt['thien_at']}")
+    print(f"    Trực Phù      : {tt['truc_phu']}")
+    print(f"    Địa Ất        : {tt['dia_at']}")
     print("=" * 52)
 
 

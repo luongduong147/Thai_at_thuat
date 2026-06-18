@@ -93,4 +93,43 @@ thân 1, dậu 1, tuất 1, càn 2, hợi 1, tý 1, sửu 1, cấn 1, dần 1, m
 - Chủ Tham Tướng: Dùng số cung biệt số mà chủ đại tướng đứng, nhân với 3. Số đạt được bao nhiêu thì đặt chủ tham tướng vào cung đó, nếu quá 10 thì chia cho 10 lấy dư
 - Khách Tham Tướng: Dùng số cung biệt số mà khách đại tướng đứng tại đó, nhân với 3. Tương tự như chủ tham tướng. 
 
+6. Tính *Quân Cơ*, *Thần Cơ* và *Dân Cơ*
+- Tính mốc *trung cổ giáp dần* - quan trọng: Từ mốc trung cổ giáp dần đến năm 1787 đinh mùi là 14.394 năm -> Đến năm 2026 (hiện tại) là 14.394 + (2026 - 1787) năm, đây là mốc tích tuế của giáp dần
+
+- Tính *Quân cơ*: Lấy tích tuế trung cổ giáp dần chia 360, Khi số dư nhỏ hơn 360 thì chia tiếp cho 30, lấy thương số làm bước
+- Ví dụ: năm 1787 đinh mùi, tích tuế (giáp dần) là 14.394 -> Tích tuế giáp dần / 360 dư 354, 354/30 được 11 dư 24, tức là dân cơ đi được 11 cung, đang ở cung thứ 12 được 24 năm
+- Sao Quân Cơ khởi từ ngọ, chạy từ Ngọ khắp 12 cung (theo quy luật 12 cung không tính càn khôn cấn tốn).Cung thứ 12, tức là Từ Ngọ xuôi chiều kim đồng hồ được 12 bước là đến Tỵ -> Sao Quân Cơ ở cung tỵ được 24 năm
+
+
+- Tính *Thần Cơ*: Tương tự, lấy tích tuế trung cổ chia cho 360, số dư được nhỏ hơn 360 thì chia tiếp cho 36, số dư lớn hơn 3 nhỏ hơn 36 thì chia tiếp cho 3 (vì thần cơ ở 1 cung 3 năm).
+- Ví dụ: 1987 Đinh Mão, tích tuế trung cổ: 14.594 -> Tích tuế / 360 dư 194, 194/36 dư 14, 14/3 được 4 dư 2 
+- Suy ra sao quân cơ đã đi được 4 cung, đang ở cung thứ 5 được 2 năm, tức là từ Ngọ -> tuất : 5 Cung, Thần cơ ở tuất
+
+- Tính *Dân cơ*: Dân cơ cứ 1 năm là 1 cung. Lấy Kỷ dư, cộng với 250, rồi chia 360. Số dư chia tiếp cho 12. Sao Dân cơ bắt đầu từ tuất, đi thuận chiều 12 cung (tương tự thần cơ và quân cơ) 
+- Ví dụ: 1972 nhâm tý kỷ dư = 289.
+- 289 + 250/360 dư 179, 179/12 được 14 dư 11. Bắt đầu từ Tuất, vậy vị trí 11 là đến Thân (Tuất, Hợi,...,Mùi,Thân). Sao Dân cơ ở cung Thân
+
+7. Tính *Tứ thần*
+- Tính Tứ Thần. Bộ sao Tứ Thần gồm có 4 sao: Tứ Thần, Thiên Ất, Trực Phù, Địa Ất.
+
+- Cách tính: Bộ sao này, cứ 3 năm mới rời một vị. Vòng sao = 36. Lấy vòng kỷ Dư của năm cầu việc, chia dần cho 36. Số dư đem chia tiếp 3 (vì 3 năm mới rời 1 cung).
+- Tứ Thần: khởi từ cung chính 1 chuyển xuôi qua các cung chính (1 Càn 2 Ngọ 3 Cấn 4 Mão 5 giữa 6 Dậu 7 khôn 8 tý 9 tốn) sau đây, tức là: 1,2,3,4,5,6,7,8,9, Tị, Thân, Dần (Tị = Giáng cung; Thân = Minh Đường; Dần = Ngọc Đường – Đường là thềm)
+
+- Ví dụ: Năm Tân Dậu, tứ Thần ở cung 5 được 1 năm, còn 2 năm nữa, sẽ vào cung năm Giáp Tý là Dậu 6.
+
+- Giải: Năm Tân Dậu, Tích Tuế 10.155.718 (dl 1801). 10.155.718/360 dư 118. Lấy 118 khử cho 36: 118/36 được 3 vòng dư 10. Lại rút 3 vì mỗi 3 năm chuyển 1 cung: 10/3 được 3 cung, dư 1. Vậy Tứ Thần vào cung 4 (cung Mão đã 1 năm), còn 2 năm nữa, tức đến Giáp Tý (1804) sẽ vào cung giữa 5.
+- Tìm Thiên Ất 
+- Theo cách tính như Tứ Thần. Nhưng Thiên Ất chuyển theo sau Tứ Thần 5 cung, tức là Thiên Ất khởi: 6, 7, 8, 9, Tị, Thân, Dần, 1, 2, 3, 4, 5.
+- Ví dụ: Giải toán Thiên Ất năm Nhâm Tý (1972 dl.) 289/36 được 8 vòng, dư 1. Vậy Thiên Ất đang ở đầu vòng 9 được 1 năm, vì khởi : 6 - 7 - 8 .... Vậy Thiên Ất ở Dậu được 1 năm.
+
+- Tìm Trực Phù:
+
+- Trực Phù chuyển xuôi và khởi từ 5- 6- 7- 8- 9 - Tị - Thân - Dần - 1- 2-3- 4 –
+
+- Ví dụ: Giải toán Trực Phù năm Nhâm Tý (1972 dl.) 289/36 được 8, dư 1. Trực Phù khởi từ 5 đã đến đầu vòng thứ 9 tức là ở cung giữa. Vậy Trực Phù đóng tại cung giữa đã được 1 năm.
+
+- Tìm Địa Ất
+- Theo lệ như Thiên Ất - khởi từ 9 - Tị - Thân - Dần - 1 - 2 - 3 - 4 - 5 - 6 - 7 – 8 -
+
+- Chẳng hạn: Năm Nhâm Tý 1972 – sau khi làm toán như trên, được 8 dư 1 là Địa Ất đóng tại vòng thứ 9 là cung 5 giữa đã được 1 năm. Năm Đinh Mão 1987, được 5 cung, dư 1 là vào cung Ngọ ② đã được 1 năm.
 
